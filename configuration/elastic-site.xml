@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!-- Elastic search  Configurations -->
+
+<configuration supports_final="true">
+    <!-- Configurations -->
+    <property>
+        <name>cluster_name</name>
+        <description>Cluster name identifies your cluster</description>
+    </property>
+    <property>
+        <name>seed_node1</name>
+        <value></value>
+        <description>Seed node -1</description>
+    </property>
+    <property>
+        <name>seed_node2</name>
+        <value></value>
+        <description>Seed node -2</description>
+    </property>
+    <property>
+        <name>seed_node3</name>
+        <value></value>
+        <description>Seed node -3 </description>
+    </property>
+    <property>
+        <name>index_number_of_shards</name>
+        <value>4</value>
+        <description>Set the number of shards (splits) of an index</description>
+    </property>
+    <property>
+        <name>index_number_of_replicas</name>
+        <value>2</value>
+        <description>Set the number of replicas (additional copies) of an index</description>
+    </property>
+    <!--  Logging Configurations -->
+    <property>
+        <name>path_data</name>
+        <value>"/opt/lmm/es_data"</value>
+        <description>Path to directory where to store index data allocated for this node. e.g. "/mnt/first", "/mnt/second"</description>
+    </property>    
+    <!--  Discovery -->
+    <property>
+        <name>transport_tcp_port</name>
+        <value>9300</value>
+        <description>Set a custom port for the node to node communication</description>
+    </property>
+    <property>
+        <name>http_port</name>
+        <value>9200</value>
+        <description>Set a custom port to listen for HTTP traffic</description>
+    </property>
+    <!--  Discovery -->
+    <property>
+        <name>discovery_zen_ping_multicast_enabled</name>
+        <value>false</value>
+        <description>master eligible nodes</description>
+    </property>
+    <property>
+        <name>discovery_zen_ping_timeout</name>
+        <value>3s</value>
+        <description>wait for ping responses for master discovery</description>
+    </property>
+    <property>
+        <name>discovery_zen_fd_ping_interval</name>
+        <value>15s</value>
+        <description>wait for ping for cluster discovery</description>
+    </property>
+    <property>
+        <name>discovery_zen_fd_ping_timeout</name>
+        <value>60s</value>
+        <description>wait for ping for cluster discovery</description>
+    </property>
+    <property>
+        <name>discovery_zen_fd_ping_retries</name>
+        <value>5</value>
+        <description>number of ping retries before blacklisting</description>
+    </property>
+    <!--  Gateway -->
+    <property>
+        <name>recover_after_data_nodes</name>
+        <value>3</value>
+        <description>recovery process after N nodes</description>
+    </property>
+    <property>
+        <name>recover_after_time</name>
+        <value>15m</value>
+        <description>recover_after_time</description>
+    </property>
+    <property>
+        <name>expected_data_nodes</name>
+        <value>10</value>
+        <description>expected_data_nodes</description>
+    </property>
+    <!--  Index -->  
+    <property>
+        <name>index_merge_scheduler_max_thread_count</name>
+        <value>5</value>
+        <description>index.merge.scheduler.max_thread_count</description>
+    </property>
+    <property>
+        <name>index_store_throttle_type</name>
+        <value>none</value>
+        <description>index_store_throttle_type</description>
+    </property>
+    <property>
+        <name>index_refresh_interval</name>
+        <value>22</value>
+        <description>index refresh interval</description>
+    </property>
+    <property>
+        <name>index_translog_flush_threshold_size</name>
+        <value>5g</value>
+        <description>index_translog_flush_threshold_size</description>
+    </property>
+    <property>
+        <name>index_buffer_size</name>
+        <value>10</value>
+        <description>Percentage of heap used for write buffers</description>
+    </property>
+    <property>
+        <name>mlockall</name>
+        <value>true</value>
+        <description>The third option on Linux/Unix systems only, is to use mlockall to try to lock the process address space into RAM, preventing any Elasticsearch memory from being swapped out</description>
+    </property>
+    <property>
+        <name>threadpool_bulk_queue_size</name>
+        <value>3000</value>
+        <description>It tells ES the number of  requests that can be queued for execution in the node when there is no thread available to execute a bulk request</description>
+    </property>
+    <property>
+        <name>threadpool_index_queue_size</name>
+        <value>1000</value>
+        <description>It tells ES the number of  requests that can be queued for execution in the node when there is no thread available to execute index request</description>
+    </property>
+    <property>
+        <name>indices_cluster_send_refresh_mapping</name>
+        <value>false</value>
+        <description>In order to make the index request more efficient, we have set this property on our data nodes</description>
+    </property>
+    <property>
+        <name>indices_fielddata_cache_size</name>
+        <value>25%</value>
+        <description>You need to keep in mind that not setting this value properly can cause:Facet searches and sorting to have very poor performance:The ES node to run out of memory if you run the facet query against a large index</description>
+    </property>
+    <property>
+        <name>cluster_routing_allocation_disk_watermark_high</name>
+        <value>0.99</value>
+        <description>Property used when multiple drives are used to understand max thresholds</description>
+    </property>
+    <property>
+        <name>cluster_routing_allocation_disk_threshold_enabled</name>
+        <value>true</value>
+        <description>Property used when multiple drives are used to understand if thresholding is active</description>
+    </property>   
+   <property>
+        <name>cluster_routing_allocation_disk_watermark_low</name>
+        <value>.97</value>
+        <description>Property used when multiple drives are used to understand min thresholds</description>
+    </property>
+    <property>
+        <name>cluster_routing_allocation_node_concurrent_recoveries</name>
+        <value>4</value>
+        <description>Max concurrent recoveries, useful for fast recovery of the cluster nodes on restart</description>
+    </property>
+    <property>
+        <name>network_host</name>
+        <value>bond0.100:ipv4</value>
+        <description>Network interface will bind to</description>
+    </property>
+</configuration>

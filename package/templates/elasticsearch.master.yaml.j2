@@ -1,0 +1,66 @@
+cluster:
+  name:   {{cluster_name}} 
+  routing:
+    allocation.node_concurrent_recoveries: {{cluster_routing_allocation_node_concurrent_recoveries}}
+    allocation.disk.watermark.low: {{cluster_routing_allocation_disk_watermark_low}}
+    allocation.disk.threshold_enabled: {{cluster_routing_allocation_disk_threshold_enabled}}
+    allocation.disk.watermark.high: {{cluster_routing_allocation_disk_watermark_high}}
+
+discovery:
+  zen:
+    ping:
+      multicast:
+        enabled: {{discovery_zen_ping_multicast_enabled}}
+      unicast:
+        hosts:
+             - {{seed_node1}} 
+             - {{seed_node2}}
+             - {{seed_node3}}
+node:
+  data: false
+  master: true
+  name: {{hostname}}
+path:
+  data: {{path_data}}
+  
+port: {{http_port}}
+
+transport:
+  tcp:
+    port: {{transport_tcp_port}}
+
+gateway:
+  recover_after_data_nodes: {{recover_after_data_nodes}}
+  recover_after_time: {{recover_after_time}}
+  expected_data_nodes: {{expected_data_nodes}}
+  
+index:
+  number_of_shards: {{index_number_of_shards}}
+  merge.scheduler.max_thread_count: {{index_merge_scheduler_max_thread_count}}
+  translog.flush_threshold_size: {{index_translog_flush_threshold_size}}
+  refresh_interval: {{index_refresh_interval}}
+  number_of_replicas: {{index_number_of_replicas}}
+ 
+indices:
+  memory:
+   index_buffer_size: {{index_buffer_size}}%
+   store.throttle.type: {{index_store_throttle_type}}
+  fielddata:
+   cache.size: {{indices_fielddata_cache_size}}
+  cluster:
+   send_refresh_mapping: {{indices_cluster_send_refresh_mapping}}
+
+bootstrap.mlockall: {{mlockall}}
+
+threadpool:
+  bulk:
+    queue_size: {{threadpool_bulk_queue_size}}
+  index:
+    queue_size: {{threadpool_index_queue_size}}
+
+discovery.zen.ping_timeout: {{discovery_zen_ping_timeout}}s
+discovery.zen.fd.ping_interval: {{discovery_zen_fd_ping_interval}}s
+discovery.zen.fd.ping_timeout: {{discovery_zen_fd_ping_timeout}}s
+discovery.zen.fd.ping_retries: {{discovery_zen_fd_ping_retries}}
+
+network.host: _{{network_host}}_

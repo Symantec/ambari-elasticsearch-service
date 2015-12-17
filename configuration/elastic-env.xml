@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+  <property>
+    <name>elastic_user</name>
+    <value>elasticsearch</value>
+    <property-type>USER</property-type>
+    <description></description>
+  </property>
+  <property>
+    <name>user_group</name>
+    <value>elasticsearch</value>
+    <description></description>
+  </property>
+  <property>
+    <name>elastic_log_dir</name>
+    <value>/var/log/elasticsearch</value>
+    <description>Log directory for elastic</description>
+  </property>
+  <property>
+    <name>elastic_pid_dir</name>
+    <value>/var/run/elasticsearch</value>
+    <description></description>
+  </property>
+
+  <!-- elasticsearch-env.sh -->
+  <property>
+    <name>content</name>
+    <description>This is the jinja template for elastic-env.sh file</description>
+    <value>
+#!/bin/bash
+
+# Set ELASTICSEARCH specific environment variables here.
+
+# The java implementation to use.
+export JAVA_HOME={{java64_home}}
+export PATH=$PATH:$JAVA_HOME/bin
+    </value>
+  </property>
+</configuration>
