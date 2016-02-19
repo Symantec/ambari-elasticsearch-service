@@ -3,7 +3,7 @@ Ambari Elasticsearch Service / Custom Stack will allow you to install and manage
 To use simply download and copy the stack contents to:
 /var/lib/ambari-server/resources/stacks/HDP/${hdp.version}/services/ELASTICSEARCH/
 
-On Ambari server and restart the Ambari server service (sudo service restart ambari-server), once restarted you should see the new service in the list of services that can be installed.
+On Ambari server, restart Ambari server service (sudo service restart ambari-server), once restarted you should see the new service in the list of services that can be installed.
 
 For more detailed instructions on working with custom services please refer to: https://github.com/Symantec/ambari-cassandra-service
 
