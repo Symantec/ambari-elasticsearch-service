@@ -1,4 +1,4 @@
-# ambari-elasticsearch-service
+# ambari-elasticsearch-service (For Ambari Version>2.1 and Elasticsearch Version=1.7.1)
 Ambari Elasticsearch Service / Custom Stack will allow you to install and manage Elasticsearch via Ambari.
 To use simply download and copy the stack contents to:
 /var/lib/ambari-server/resources/stacks/HDP/${hdp.version}/services/ELASTICSEARCH/
